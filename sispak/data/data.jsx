@@ -114,7 +114,7 @@ const getCfUser = (kondisi) => {
     rules.forEach(rule => {
       if (userSymptoms[rule.kode_gejala]) {
         const userCf = getCfUser(userSymptoms[rule.kode_gejala]);
-        const cf = userCf * rule.mb - rule.md;
+        const cf = userCf * (rule.mb - rule.md);
   
         if (!possibleDepressions[rule.kode_depresi]) {
           possibleDepressions[rule.kode_depresi] = [];
