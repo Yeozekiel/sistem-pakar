@@ -9,7 +9,9 @@ interface IStudioNavProps {}
 const studioLinks = [
   { href: "/", label: "Home" },
   { href: "/gejala", label: "Gejala" },
-  { href: "/jenisDepresi", label: "Jenis Depresi & Rules" },
+  { href: "/tingkat_depresi", label: "Tingkat Depresi" },
+  { href: "/cf", label: "Certainty Factors" },
+  { href: "/keputusan", label: "Keputusan" },
 ];
 
 const MainNav: React.FunctionComponent<IStudioNavProps> = () => {
@@ -21,7 +23,7 @@ const MainNav: React.FunctionComponent<IStudioNavProps> = () => {
         <Link
           key={idx}
           href={href}
-          className={`block w-52 rounded-full text-base px-4 py-2 text-center ${
+          className={`block rounded-full text-base px-4 py-2 text-center ${
             pathname == href
               ? "text-white font-semibold bg-gray-500"
               : "font-normal bg-gray-600 text-white hover:bg-gray-200 hover:text-black hover:font-medium"

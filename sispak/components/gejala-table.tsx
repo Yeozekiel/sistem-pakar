@@ -1,20 +1,20 @@
 import { getGejala } from "../lib/data";
-import { EditButton, DeleteButton } from "./buttons";
+import { EditButton, DeleteGejalaButton } from "./buttons";
 
 const GejalaTable = async () => {
         const gejala = await getGejala();
 
     return (
         <table className="w-full text-sm text-left text-gray-500">
-            <thread className="text-sm text-gray-700 uppercase bg-gray-50">
+            <thead className="text-sm text-gray-700 uppercase bg-gray-50">
                 <tr>
-                    <th className="px-6 py-3">ID</th>
+                    <th className="px-6 py-3">#</th>
                     <th className="px-6 py-3">Kode Gejala</th>
                     <th className="px-6 py-3">Gejala</th>
-                    {/* <th className="px-6 py-3">Created At</th>
-                    <th className="px-6 py-3 text-center">Updated At</th> */}
+                    {/* <th className="px-6 py-3">Created At</th> */}
+                    <th className="px-6 py-3 text-center">Action</th>
                 </tr>
-            </thread> 
+            </thead> 
             <tbody>
                 {gejala.map((gejala)=> (
                     <tr key={gejala.id} className="bg-white border-b">
@@ -24,7 +24,7 @@ const GejalaTable = async () => {
                         {/* <td className="px-6 py-3">{gejala.created_at}</td> */}
                         <td className="flex justify-center gap-1 py-3">
                             {/* <EditButton /> */}
-                            <DeleteButton id={gejala.id}/>
+                            <DeleteGejalaButton id={gejala.id} />
                         </td>
                     </tr>
                 ))}

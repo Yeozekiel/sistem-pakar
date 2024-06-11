@@ -1,17 +1,17 @@
-import TingkatDepresiTable from "../../components/tingkat-depresi-table"
+import CFTable from "../../components/cf-table";
 import Search from "../../components/search";
 import { CreateButton } from "../../components/buttons";
 
-const TingkatDepresi = () =>  {
+const CF = () =>  {
     return (
         <div className="max-w-screen-md mx-auto mt-5">
             <div className="flex items-center justify-between gap-1 mb-5">
-                <Search />
-                <CreateButton href="/tingkat_depresi/create"/>
+                {/* <Search /> */}
+                {/* <CreateButton href="/cf/create"/> */}
             </div>
-            <TingkatDepresiTable />
+            <CFTable />
         </div>
     )
 }
 
-export default TingkatDepresi
+export default CF

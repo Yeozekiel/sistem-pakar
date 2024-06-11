@@ -1,17 +1,17 @@
-import TingkatDepresiTable from "../../components/tingkat-depresi-table"
+import KeputusanTable from "../../components/keputusan-table";
 import Search from "../../components/search";
 import { CreateButton } from "../../components/buttons";
 
-const TingkatDepresi = () =>  {
+const Keputusan = () =>  {
     return (
         <div className="max-w-screen-md mx-auto mt-5">
             <div className="flex items-center justify-between gap-1 mb-5">
                 <Search />
-                <CreateButton href="/tingkat_depresi/create"/>
+                <CreateButton href="/keputusan/create"/>
             </div>
-            <TingkatDepresiTable />
+            <KeputusanTable />
         </div>
     )
 }
 
-export default TingkatDepresi
+export default Keputusan
