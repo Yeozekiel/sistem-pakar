@@ -53,11 +53,10 @@ export const jenis_depresi = [
 ];
 
 export const cf_user = [
+    { kondisi: 'Tidak Pernah', nilai: -0.5 },
     { kondisi: 'Tidak Tahu', nilai: 0.0 },
-    { kondisi: 'Tidak Yakin', nilai: 0.2 },
-    { kondisi: 'Mungkin', nilai: 0.4 },
+    { kondisi: 'Jarang', nilai: 0.3 },
     { kondisi: 'Kemungkinan Besar', nilai: 0.6 },
-    { kondisi: 'Hampir Pasti', nilai: 0.8 },
     { kondisi: 'Pasti', nilai: 1.0 }
 ];
 
@@ -93,18 +92,20 @@ export const gejala2 = [
     { kode_gejala: "G029", gejala: "Kurang percaya diri" }
 ];
 
-const getCfUser = (kondisi) => {
-    const result = cf_user.find(cf => cf.kondisi === kondisi);
-    return result ? result.nilai : 0.0;
-  };
-  
   const calculateCF = (cfList) => {
     if (cfList.length === 0) return 0.0;
   
     let cfCombine = cfList[0];
     for (let i = 1; i < cfList.length; i++) {
-      cfCombine = cfCombine + cfList[i] * (1 - cfCombine);
+      cfCombine = (cfCombine + cfList[i]) * (1 - Math.min(Math.abs(cfCombine), Math.abs(cfList[i])));
     }
+
+    if (cfCombine > 1) {
+      cfCombine = 1;
+    } else if (cfCombine < 0) {
+      cfCombine = 0;
+    }
+
     return cfCombine;
   };
   
@@ -112,9 +113,12 @@ const getCfUser = (kondisi) => {
     const possibleDepressions = {};
   
     rules.forEach(rule => {
-      if (userSymptoms[rule.kode_gejala]) {
-        const userCf = getCfUser(userSymptoms[rule.kode_gejala]);
-        const cf = userCf * (rule.mb - rule.md);
+      if (userSymptoms[0][rule.kode_gejala]) {
+        let dataUserCf = cf_user.find(cf => cf.kondisi === userSymptoms[0][rule.kode_gejala])
+        console.log(dataUserCf)
+        let userCf = dataUserCf.nilai
+        let cf = userCf * (rule.mb - rule.md);
+        console.log(cf)
   
         if (!possibleDepressions[rule.kode_depresi]) {
           possibleDepressions[rule.kode_depresi] = [];
@@ -126,6 +130,7 @@ const getCfUser = (kondisi) => {
   
     const results = [];
     for (const [kode_depresi, cfList] of Object.entries(possibleDepressions)) {
+      console.log(cfList);
       const finalCF = calculateCF(cfList);
       const depresi = jenis_depresi.find(d => d.kode_depresi === kode_depresi);
       if (depresi) {

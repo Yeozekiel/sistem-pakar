@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { gejala2, cf_user } from "@/data/data";
 import { useAtom } from "jotai";
@@ -25,9 +24,9 @@ export default function Form() {
   };
 
   return (
-    <div className='min-h-screen w-full flex flex-col items-center justify-center bg-gray-100 text-black'>
+    <div className='min-h-screen w-full flex flex-col items-center justify-center bg-gray-300 text-black'>
       <h1 className='text-3xl font-bold text-black mb-4'>
-        Fill the Symptoms Form
+        Masukkan gejala yang anda rasakan
       </h1>
       <form
         onSubmit={handleSubmit}
