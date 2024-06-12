@@ -14,7 +14,7 @@ export default function Result() {
   console.log(formData[0]);
 
 
-  const diagnosis = diagnose(formData);
+  const trueDiagnosis = diagnose(formData);
 
   const 
 
