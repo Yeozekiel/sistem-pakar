@@ -16,8 +16,6 @@ export default function Result() {
 
   const trueDiagnosis = diagnose(formData);
 
-  const 
-
   return (
     <div className='min-h-screen flex flex-col items-center justify-center bg-gray-300'>
       <h1 className='text-3xl font-bold mb-4 text-black'>Diagnosis Result</h1>
