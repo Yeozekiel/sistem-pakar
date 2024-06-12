@@ -3,10 +3,10 @@
 import Link from "next/link";
 import { useAtom } from "jotai";
 
-import { dataAtom } from "@/context/atoms";
+import { dataAtom } from "../../context/atoms";
 
 // Import your expert system logic here
-import { diagnose } from "@/data/data"; // Adjust the import path as necessary
+import { diagnose } from "../../data/data"; // Adjust the import path as necessary
 
 export default function Result() {
   const formData = useAtom(dataAtom);

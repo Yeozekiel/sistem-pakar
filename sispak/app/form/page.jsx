@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { gejala2, cf_user } from "@/data/data";
+import { gejala2, cf_user } from "../../data/data";
 import { useAtom } from "jotai";
-import { dataAtom } from "@/context/atoms";
+import { dataAtom } from "../../context/atoms";
 
 export default function Form() {
   const [data, setData] = useAtom(dataAtom);

@@ -103,7 +103,7 @@ const getCfUser = (kondisi) => {
   
     let cfCombine = cfList[0];
     for (let i = 1; i < cfList.length; i++) {
-      cfCombine = cfCombine + cfList[i] * (1 - cfCombine);
+      cfCombine = (cfCombine + cfList[i]) * (1 - Math.min(Math.abs(cfCombine), Math.abs(cfList[i])));
     }
     return cfCombine;
   };
