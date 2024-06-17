@@ -153,7 +153,7 @@ export const CreateFormKeputusan = () => {
                             Measure of Belief
                         </label>
                     <input 
-                        type="number" 
+                        type="float" 
                         name="measure_of_belief" 
                         id="measure_of_belief" 
                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" 
@@ -171,15 +171,15 @@ export const CreateFormKeputusan = () => {
                             Measure of Disbelief
                         </label>
                     <input 
-                        type="number" 
+                        type="float" 
                         name="measure_of_disbelief" 
                         id="measure_of_disbelief" 
                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" 
                         placeholder="Measure of Disbelief..."
                     />
-                    <div id="measure_of_disbelief-error" aria-live="polite" aria-atomic="true">
+                    {/* <div id="measure_of_disbelief-error" aria-live="polite" aria-atomic="true">
                         <p className="mt-2 text-sm text-red-500">{state?.Error?.md}</p>
-                    </div>
+                    </div> */}
                 </div>
                 <div id="message-error" aria-live="polite" aria-atomic="true">
                         <p className="mt-2 text-sm text-red-500">{state?.message}</p>

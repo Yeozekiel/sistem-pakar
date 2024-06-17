@@ -41,7 +41,7 @@ export default function Form() {
                   type='radio'
                   name={rule.kode_gejala}
                   value={cf.kondisi}
-                  required
+                  // required
                   onChange={(e) => handleChange(e, rule.kode_gejala)}
                 />
                 <label for={cf.kondisi} className='block text-black mb-2'>
